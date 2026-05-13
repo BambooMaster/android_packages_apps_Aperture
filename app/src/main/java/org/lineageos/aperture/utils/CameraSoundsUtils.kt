@@ -42,13 +42,6 @@ class CameraSoundsUtils(private val preferencesRepository: PreferencesRepository
 
     companion object {
         val mustPlaySounds: Boolean
-            @Suppress("DiscouragedApi")
-            get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                MediaActionSound.mustPlayShutterSound()
-            } else {
-                val resources = Resources.getSystem()
-                val id = resources.getIdentifier("config_camera_sound_forced", "bool", "android")
-                id > 0 && resources.getBoolean(id)
-            }
+            get() = false
     }
 }
